@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 class CalendarWidget extends StatelessWidget {
   final int selectedDay;
   final Function(int) onDaySelected;
-  int today = DateTime.now().day;
+  DateTime today = DateTime.now();
   String formattedDate =
       DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now());
 
@@ -31,13 +31,13 @@ class CalendarWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildDay("MAR", 4),
-              _buildDay("MIÉ", 5),
-              _buildDay("JUE", 6),
-              _buildDay("VIE", 7),
-              _buildDay("SÁB", 8),
-              _buildDay("DOM", 9),
-              _buildDay("LUN", 10),
+              _buildDay("LUN", today.day - 1),
+              _buildDay("MAR", today.day),
+              _buildDay("MIE", today.day + 1),
+              _buildDay("JUE", today.day + 2),
+              _buildDay("VIE", today.day + 3),
+              _buildDay("SAB", today.day + 4),
+              _buildDay("DOM", today.day + 5),
             ],
           ),
         ],
