@@ -8,6 +8,8 @@ void main() {
 
 // Widget principal de la aplicación
 class HabitTrackerApp extends StatelessWidget {
+  const HabitTrackerApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,26 +21,81 @@ class HabitTrackerApp extends StatelessWidget {
 
 // Vista principal que maneja el estado de los hábitos
 class HabitTracker extends StatefulWidget {
+  const HabitTracker({super.key});
+
   @override
   _HabitTrackerState createState() => _HabitTrackerState();
 }
 
 class _HabitTrackerState extends State<HabitTracker> {
-  int selectedDay = 5; // Día seleccionado (inicialmente el día 5)
-  
+  int selectedDay =
+      DateTime.now().day; // Día seleccionado (inicialmente el día 5)
+
   // Mapa para guardar el estado de los hábitos por día
   Map<int, List<Map<String, dynamic>>> habitsByDay = {
     5: [
-      {"name": "Madruga", "completed": false, "streak": 0, "color": Colors.green, "icon": Icons.wb_sunny},
-      {"name": "Ejercicio", "completed": false, "streak": 0, "progress": "14 / 20 min", "color": Colors.red, "icon": Icons.directions_run},
-      {"name": "Beber agua", "completed": false, "streak": 0, "progress": "3 / 8 vasos", "color": Colors.blue, "icon": Icons.local_drink},
-      {"name": "Come frutas y verduras", "completed": false, "streak": 0, "color": Colors.orange, "icon": Icons.apple},
+      {
+        "name": "Madruga",
+        "completed": false,
+        "streak": 0,
+        "color": Colors.green,
+        "icon": Icons.wb_sunny
+      },
+      {
+        "name": "Ejercicio",
+        "completed": false,
+        "streak": 0,
+        "progress": "14 / 20 min",
+        "color": Colors.red,
+        "icon": Icons.directions_run
+      },
+      {
+        "name": "Beber agua",
+        "completed": false,
+        "streak": 0,
+        "progress": "3 / 8 vasos",
+        "color": Colors.blue,
+        "icon": Icons.local_drink
+      },
+      {
+        "name": "Come frutas y verduras",
+        "completed": false,
+        "streak": 0,
+        "color": Colors.orange,
+        "icon": Icons.apple
+      },
     ],
     6: [
-      {"name": "Madruga", "completed": true, "streak": 1, "color": Colors.green, "icon": Icons.wb_sunny},
-      {"name": "Ejercicio", "completed": false, "streak": 0, "progress": "14 / 20 min", "color": Colors.red, "icon": Icons.directions_run},
-      {"name": "Beber agua", "completed": true, "streak": 1, "progress": "3 / 8 vasos", "color": Colors.blue, "icon": Icons.local_drink},
-      {"name": "Come frutas y verduras", "completed": false, "streak": 0, "color": Colors.orange, "icon": Icons.apple},
+      {
+        "name": "Madruga",
+        "completed": true,
+        "streak": 1,
+        "color": Colors.green,
+        "icon": Icons.wb_sunny
+      },
+      {
+        "name": "Ejercicio",
+        "completed": false,
+        "streak": 0,
+        "progress": "14 / 20 min",
+        "color": Colors.red,
+        "icon": Icons.directions_run
+      },
+      {
+        "name": "Beber agua",
+        "completed": true,
+        "streak": 1,
+        "progress": "3 / 8 vasos",
+        "color": Colors.blue,
+        "icon": Icons.local_drink
+      },
+      {
+        "name": "Come frutas y verduras",
+        "completed": false,
+        "streak": 0,
+        "color": Colors.orange,
+        "icon": Icons.apple
+      },
     ],
   };
 
@@ -71,7 +128,8 @@ class _HabitTrackerState extends State<HabitTracker> {
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         elevation: 0,
-        title: Text("Crea Buenos Hábitos", style: TextStyle(fontSize: 22)),
+        title:
+            const Text("Crea Buenos Hábitos", style: TextStyle(fontSize: 22)),
       ),
       body: Column(
         children: [
@@ -92,10 +150,8 @@ class _HabitTrackerState extends State<HabitTracker> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: Colors.blueAccent,
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
 }
-
-
