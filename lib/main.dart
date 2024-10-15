@@ -33,7 +33,7 @@ class _HabitTrackerState extends State<HabitTracker> {
 
   // Mapa para guardar el estado de los hábitos por día
   Map<int, List<Map<String, dynamic>>> habitsByDay = {
-    5: [
+    15: [
       {
         "name": "Madruga",
         "completed": false,
@@ -65,7 +65,103 @@ class _HabitTrackerState extends State<HabitTracker> {
         "icon": Icons.apple
       },
     ],
-    6: [
+    16: [
+      {
+        "name": "Madruga",
+        "completed": true,
+        "streak": 1,
+        "color": Colors.green,
+        "icon": Icons.wb_sunny
+      },
+      {
+        "name": "Ejercicio",
+        "completed": false,
+        "streak": 0,
+        "progress": "14 / 20 min",
+        "color": Colors.red,
+        "icon": Icons.directions_run
+      },
+      {
+        "name": "Beber agua",
+        "completed": true,
+        "streak": 1,
+        "progress": "3 / 8 vasos",
+        "color": Colors.blue,
+        "icon": Icons.local_drink
+      },
+      {
+        "name": "Come frutas y verduras",
+        "completed": false,
+        "streak": 0,
+        "color": Colors.orange,
+        "icon": Icons.apple
+      },
+    ],
+    17: [
+      {
+        "name": "Madruga",
+        "completed": true,
+        "streak": 1,
+        "color": Colors.green,
+        "icon": Icons.wb_sunny
+      },
+      {
+        "name": "Ejercicio",
+        "completed": false,
+        "streak": 0,
+        "progress": "14 / 20 min",
+        "color": Colors.red,
+        "icon": Icons.directions_run
+      },
+      {
+        "name": "Beber agua",
+        "completed": true,
+        "streak": 1,
+        "progress": "3 / 8 vasos",
+        "color": Colors.blue,
+        "icon": Icons.local_drink
+      },
+      {
+        "name": "Come frutas y verduras",
+        "completed": false,
+        "streak": 0,
+        "color": Colors.orange,
+        "icon": Icons.apple
+      },
+    ],
+    18: [
+      {
+        "name": "Madruga",
+        "completed": true,
+        "streak": 1,
+        "color": Colors.green,
+        "icon": Icons.wb_sunny
+      },
+      {
+        "name": "Ejercicio",
+        "completed": false,
+        "streak": 0,
+        "progress": "14 / 20 min",
+        "color": Colors.red,
+        "icon": Icons.directions_run
+      },
+      {
+        "name": "Beber agua",
+        "completed": true,
+        "streak": 1,
+        "progress": "3 / 8 vasos",
+        "color": Colors.blue,
+        "icon": Icons.local_drink
+      },
+      {
+        "name": "Come frutas y verduras",
+        "completed": false,
+        "streak": 0,
+        "color": Colors.orange,
+        "icon": Icons.apple
+      },
+    ],
+    19: [
       {
         "name": "Madruga",
         "completed": true,
