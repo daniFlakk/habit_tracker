@@ -30,6 +30,7 @@ class _HabitTrackerState extends State<HabitTracker> {
       "name": "Madruga",
       "completed": false,
       "streak": 0,
+      "goal": 21,
       "color": Colors.green,
       "icon": Icons.wb_sunny
     },
@@ -37,6 +38,7 @@ class _HabitTrackerState extends State<HabitTracker> {
       "name": "Ejercicio",
       "completed": false,
       "streak": 0,
+      "goal": 21,
       "progress": "14 / 20 min",
       "color": Colors.red,
       "icon": Icons.directions_run
@@ -45,6 +47,7 @@ class _HabitTrackerState extends State<HabitTracker> {
       "name": "Beber agua",
       "completed": false,
       "streak": 0,
+      "goal": 21,
       "progress": "3 / 8 vasos",
       "color": Colors.blue,
       "icon": Icons.local_drink
@@ -53,6 +56,7 @@ class _HabitTrackerState extends State<HabitTracker> {
       "name": "Come frutas y verduras",
       "completed": false,
       "streak": 0,
+      "goal": 21,
       "color": Colors.orange,
       "icon": Icons.apple
     },

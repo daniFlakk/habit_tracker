@@ -13,9 +13,11 @@ class HabitCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double progress = habit["streak"] / habit["goal"];
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 8),
-      color: habit["color"],
+      color: Color.lerp(
+          const Color.fromARGB(255, 255, 17, 0), Colors.green, progress)!,
       child: ListTile(
         leading: Icon(habit["icon"], color: Colors.white),
         title: Text(habit["name"],
