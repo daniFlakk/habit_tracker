@@ -25,6 +25,7 @@ class HabitTracker extends StatefulWidget {
 
 class _HabitTrackerState extends State<HabitTracker> {
   int selectedDay = DateTime.now().day; // Día seleccionado
+  final int today = DateTime.now().day; // Día actual
 
   List<Map<String, dynamic>> habits = [
     {
@@ -82,7 +83,6 @@ class _HabitTrackerState extends State<HabitTracker> {
 
   // Alterna la finalización de un hábito y actualiza la racha
   void toggleHabitCompletion(int index) {
-    //List<Map<String, dynamic>>? habits = habits ?? [];
     if (habits.isNotEmpty) {
       setState(() {
         habits[index]['completed'] = !habits[index]['completed'];
@@ -104,6 +104,24 @@ class _HabitTrackerState extends State<HabitTracker> {
         elevation: 0,
         title:
             const Text("Crea Buenos Hábitos", style: TextStyle(fontSize: 22)),
+        actions: [
+          Visibility(
+            visible:
+                selectedDay != today, // Mostrar solo si no es el día actual
+            child: TextButton(
+              onPressed: () {
+                // Volver al día actual
+                setState(() {
+                  selectedDay = today;
+                });
+              },
+              child: const Text(
+                "HOY",
+                style: TextStyle(color: Colors.white, fontSize: 16),
+              ),
+            ),
+          ),
+        ],
       ),
       body: Column(
         children: [

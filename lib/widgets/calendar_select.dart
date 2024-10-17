@@ -22,7 +22,6 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   void initState() {
     super.initState();
     _currentWeek = today;
-    // Iniciamos en la página 50 para permitir deslizar hacia atrás y adelante
     _pageController = PageController(initialPage: 50);
   }
 
