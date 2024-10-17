@@ -5,12 +5,12 @@ class HabitList extends StatelessWidget {
   final List<Map<String, dynamic>> habits;
   final Function(int) toggleCompletion;
 
-  HabitList({required this.habits, required this.toggleCompletion});
+  const HabitList({super.key, required this.habits, required this.toggleCompletion});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       color: Colors.white,
       child: ListView.builder(
         itemCount: habits.length,

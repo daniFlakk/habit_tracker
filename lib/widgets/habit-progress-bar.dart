@@ -79,8 +79,8 @@ void main() {
       appBar: AppBar(
         title: const Text('Habit Progress'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: const Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
           children: [
             HabitProgressBar(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracker/widgets/add_habit_widget.dart';
 import 'package:habit_tracker/widgets/calendar_select.dart';
 import 'package:habit_tracker/widgets/habit_list.dart';
 
@@ -7,7 +8,7 @@ class HabitTrackerApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HabitTracker(),
     );
@@ -121,10 +122,31 @@ class _HabitTrackerState extends State<HabitTracker> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.blueAccent,
-        child: const Icon(Icons.add),
-      ),
+  onPressed: () {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AddHabitWidget(
+          onAddHabit: (String habitName, Color color, IconData icon) {
+            setState(() {
+              habits.add({
+                "name": habitName,
+                "completed": false,
+                "streak": 0,
+                "goal": 21, // Meta por defecto, puedes cambiarla si es necesario
+                "color": color,
+                "icon": icon
+              });
+            });
+          },
+        );
+      },
+    );
+  },
+  backgroundColor: Colors.blueAccent,
+  child: const Icon(Icons.add),
+),
+
     );
   }
 }

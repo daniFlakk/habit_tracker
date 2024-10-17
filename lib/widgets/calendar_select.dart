@@ -26,7 +26,7 @@ class CalendarWidget extends StatelessWidget {
                   fontWeight: FontWeight.bold)),
           const SizedBox(height: 4),
           Text(formattedDate,
-              style: TextStyle(color: Colors.white60, fontSize: 18)),
+              style: const TextStyle(color: Colors.white60, fontSize: 18)),
           const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
