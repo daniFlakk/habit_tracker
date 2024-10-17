@@ -32,9 +32,10 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   }
 
   List<DateTime> _getWeekDays(DateTime week) {
-    int currentDayOfWeek = week.weekday;
-    DateTime sunday = week.subtract(Duration(days: currentDayOfWeek % 7));
-    return List.generate(7, (index) => sunday.add(Duration(days: index)));
+    // Asegúrate de que la semana comience el lunes
+    int daysToSubtract = (week.weekday - 1) % 7; // Lunes es el día 1
+    DateTime monday = week.subtract(Duration(days: daysToSubtract));
+    return List.generate(7, (index) => monday.add(Duration(days: index)));
   }
 
   Widget _buildDay(String day, int dayNumber) {
@@ -83,19 +84,35 @@ class _CalendarWidgetState extends State<CalendarWidget> {
     );
   }
 
+  void _goToToday() {
+    setState(() {
+      // Regresa al día actual
+      widget.onDaySelected(today.day); // Selecciona el día actual
+      _currentWeek = today;
+      _pageController.jumpToPage(50); // Página correspondiente a la semana actual
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    bool isTodaySelected = widget.selectedDay == today.day &&
+        today.month == _currentWeek.month &&
+        today.year == _currentWeek.year;
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
       color: Colors.black87,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("HOY",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold)),
+          GestureDetector(
+            onTap: _goToToday,
+            child: Text("HOY",
+                style: TextStyle(
+                    color: isTodaySelected ? Colors.white : Colors.blue,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold)),
+          ),
           const SizedBox(height: 4),
           Text(DateFormat('yyyy-MM-dd HH:mm:ss', 'es_CO').format(today),
               style: const TextStyle(color: Colors.white60, fontSize: 18)),

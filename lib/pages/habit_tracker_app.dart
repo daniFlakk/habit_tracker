@@ -82,24 +82,28 @@ class _HabitTrackerState extends State<HabitTracker> {
     });
   }
 
-  // Alterna la finalización de un hábito y actualiza la racha
-  void toggleHabitCompletion(int index) {
-    if (habits.isNotEmpty) {
-      setState(() {
-        habits[index]['completed'] = !habits[index]['completed'];
-        if (habits[index]['completed']) {
-          habits[index]['streak'] += 1;
-        } else {
-          habits[index]['streak'] = 0;
-        }
+ void toggleHabitCompletion(int index) {
+  if (habits.isNotEmpty) {
+    setState(() {
+      habits[index]['completed'] = !habits[index]['completed'];
+      if (habits[index]['completed']) {
+        habits[index]['streak'] += 1;
+      } else {
+        habits[index]['streak'] = 0;
+      }
 
-        // Verifica si se ha alcanzado el objetivo
-        if (habits[index]['streak'] == 21) {
-          _showCongratulationsDialog(habits[index]['name']);
-        }
-      });
-    }
+      if (habits[index]['streak'] == 21) {
+        _showCongratulationsDialog(habits[index]['name']);
+        Future.delayed(const Duration(seconds: 2), () {
+          setState(() {
+            habits.removeAt(index);
+          });
+        });
+      }
+    });
   }
+}
+
 
   // Método para mostrar el diálogo de felicitaciones
   void _showCongratulationsDialog(String habitName) {
@@ -119,23 +123,6 @@ class _HabitTrackerState extends State<HabitTracker> {
         backgroundColor: Colors.blueAccent,
         elevation: 0,
         title: const Text("Crea Buenos Hábitos", style: TextStyle(fontSize: 22)),
-        actions: [
-          Visibility(
-            visible: selectedDay != today, // Mostrar solo si no es el día actual
-            child: TextButton(
-              onPressed: () {
-                // Volver al día actual
-                setState(() {
-                  selectedDay = today;
-                });
-              },
-              child: const Text(
-                "HOY",
-                style: TextStyle(color: Colors.white, fontSize: 16),
-              ),
-            ),
-          ),
-        ],
       ),
       body: Column(
         children: [
