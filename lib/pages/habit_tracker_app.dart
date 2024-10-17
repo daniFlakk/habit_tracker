@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:habit_tracker/widgets/add_habit_widget.dart';
 import 'package:habit_tracker/widgets/calendar_select.dart';
 import 'package:habit_tracker/widgets/habit_list.dart';
+import 'congratulations_dialog.dart'; // Importa el nuevo archivo
 
 class HabitTrackerApp extends StatelessWidget {
   const HabitTrackerApp({super.key});
@@ -91,8 +92,23 @@ class _HabitTrackerState extends State<HabitTracker> {
         } else {
           habits[index]['streak'] = 0;
         }
+
+        // Verifica si se ha alcanzado el objetivo
+        if (habits[index]['streak'] == 21) {
+          _showCongratulationsDialog(habits[index]['name']);
+        }
       });
     }
+  }
+
+  // Método para mostrar el diálogo de felicitaciones
+  void _showCongratulationsDialog(String habitName) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return CongratulationsDialog(habitName: habitName); // Llama a la nueva clase
+      },
+    );
   }
 
   @override
@@ -102,12 +118,10 @@ class _HabitTrackerState extends State<HabitTracker> {
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         elevation: 0,
-        title:
-            const Text("Crea Buenos Hábitos", style: TextStyle(fontSize: 22)),
+        title: const Text("Crea Buenos Hábitos", style: TextStyle(fontSize: 22)),
         actions: [
           Visibility(
-            visible:
-                selectedDay != today, // Mostrar solo si no es el día actual
+            visible: selectedDay != today, // Mostrar solo si no es el día actual
             child: TextButton(
               onPressed: () {
                 // Volver al día actual
@@ -151,8 +165,7 @@ class _HabitTrackerState extends State<HabitTracker> {
                       "name": habitName,
                       "completed": false,
                       "streak": 0,
-                      "goal":
-                          21, // Meta por defecto, puedes cambiarla si es necesario
+                      "goal": 21, // Meta por defecto
                       "color": color,
                       "icon": icon
                     });

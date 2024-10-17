@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HabitProgressBar extends StatelessWidget {
-  final String habitName; // Nombre del hábito (por ejemplo: "Ejercicio")
-  final int currentValue; // Valor actual (por ejemplo: 14 minutos)
-  final int goalValue; // Valor meta (por ejemplo: 20 minutos)
+  final String habitName; 
+  final int currentValue; 
+  final int goalValue;
 
   const HabitProgressBar({
     super.key,
@@ -70,37 +70,4 @@ class HabitProgressBar extends StatelessWidget {
       ),
     );
   }
-}
-
-// Ejemplo de uso del widget HabitProgressBar:
-void main() {
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: const Text('Habit Progress'),
-      ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            HabitProgressBar(
-              habitName: 'Ejercicio',
-              currentValue: 14,
-              goalValue: 20,
-            ),
-            HabitProgressBar(
-              habitName: 'Beber agua',
-              currentValue: 3,
-              goalValue: 8,
-            ),
-            HabitProgressBar(
-              habitName: 'Come frutas y verduras',
-              currentValue: 2,
-              goalValue: 5,
-            ),
-          ],
-        ),
-      ),
-    ),
-  ));
 }

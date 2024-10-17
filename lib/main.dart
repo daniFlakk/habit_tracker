@@ -6,5 +6,3 @@ void main() async {
   await initializeDateFormatting('es_CO', null);
   runApp(const HabitTrackerApp());
 }
-
-

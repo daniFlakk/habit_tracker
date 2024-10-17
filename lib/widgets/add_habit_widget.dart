@@ -26,42 +26,6 @@ class _AddHabitWidgetState extends State<AddHabitWidget> {
             decoration: const InputDecoration(labelText: 'Nombre del hábito'),
           ),
           const SizedBox(height: 10),
-          // Selector de color
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //   children: [
-          //     const Text("Color"),
-          //     DropdownButton<Color>(
-          //       value: _selectedColor,
-          //       items: [
-          //         DropdownMenuItem(
-          //           value: Colors.green,
-          //           child: Container(width: 24, height: 24, color: Colors.green),
-          //         ),
-          //         DropdownMenuItem(
-          //           value: Colors.red,
-          //           child: Container(width: 24, height: 24, color: Colors.red),
-          //         ),
-          //         DropdownMenuItem(
-          //           value: Colors.blue,
-          //           child: Container(width: 24, height: 24, color: Colors.blue),
-          //         ),
-          //         DropdownMenuItem(
-          //           value: Colors.orange,
-          //           child: Container(width: 24, height: 24, color: Colors.orange),
-          //         ),
-          //       ],
-          //       onChanged: (Color? newColor) {
-          //         if (newColor != null) {
-          //           setState(() {
-          //             _selectedColor = newColor;
-          //           });
-          //         }
-          //       },
-          //     ),
-          //   ],
-          // ),
-          const SizedBox(height: 10),
           // Selector de ícono
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
